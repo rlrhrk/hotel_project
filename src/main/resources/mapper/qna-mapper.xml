@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.mapper.QnAMapper">
+	
+	<select id="selectQna" parameterType="map" resultType="qna">
+		select * from (select ceil(rownum / 5) as pageNo, qna.* from qna)
+		where pageNo = #{pageNo} and email = #{email}
+	</select>
+	
+	<select id="qnaCount" parameterType="String" resultType="int">
+		select count(*) from qna where email = #{email}
+	</select>
+	
+	<update id="updateQnaResponse" parameterType="map">
+		update qna set qnaresponse = #{response} where qnano = #{qnano}
+	</update>
+	
+	<update id="deleteQnaResponse" parameterType="String">
+		update qna set qnaresponse = NULL where qnano = #{qnano}
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+

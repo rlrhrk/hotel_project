@@ -1,0 +1,58 @@
+/*Input Your Custom CSS Here*/
+/* layout */
+#body_content {width:100%; height:100vh; padding:50px;}
+
+/* header */
+
+.header_logo {flex-basis:125px; flex-shrink:0;}
+.header_btn_area {padding:0 30px;}
+.header_btn_area a {color:#818181; padding:0 8px; font-size:13pt;}
+.header_btn_area a:hover {color:#FFF;}
+
+/* custom */
+.input_wrap {text-align:center;}
+.list_wrap {text-align:center;}
+.input_wrap textarea {width:100%; height:300px; border: 1px solid #aaa; margin-top:20px; padding:10px; }
+.login_area {width:370px; margin:0 auto;text-align:center; border:1px solid #AAA; padding:30px;}
+.login_area.login {display:none;}
+.login_area .input_area {width:100%; margin:0 auto;}
+.login_area .input_area input {border-bottom:1px solid #AAA; padding:10px 5px; width:100%; }
+.login_area .input_area label {font-size:10pt; line-height: 30px; vertical-align:middle;}
+.login_area .input_area input[type=radio] {width:50px!important; }
+.login_area .input_area .gender_wrap {margin-top:15px; text-align:center;}
+.login_area .link_wrap {width:100%; text-align:right; margin-top:20px;}
+.login_area .link_wrap a {font-size:10pt; }
+.login_area .link_wrap span {margin:0 10px;}
+
+.mypage_area {width:370px; margin:0 auto;text-align:center; border:1px solid #AAA; padding:30px;}
+
+.content_wrap {max-width:650px; margin:0 auto; display:flex; flex-direction:column; font-size:11pt;}
+.content_wrap .content_area {padding:10px; border:1px solid #AAA; cursor:pointer;}
+.content_wrap .content_area:not(:first-child) {margin-top:10px;}
+.content_wrap .content_area .title_line {display:flex; width:100%;}
+.content_wrap .content_area .title_line .title {margin: 0 auto; font-size:11pt; font-weight:normal; overflow:hidden; flex-grow:5; text-align:left; text-overflow: ellipsis;}
+.content_wrap .content_area .title_line .date {margin: 0 auto; font-size:11pt; font-weight:normal; overflow:hidden; flex-grow:2; text-overflow: ellipsis;}
+.status {flex-grow:1; min-width:100px;}
+.status .status_text { font-size:9pt; }
+.status .status_text:before {padding: 3px 5px; border-radius:6px;}
+.status_text.wait:before {content:'답변 대기'; color:#FF8888; border:1px solid #FF8888;}
+.status_text.done:before {content:'답변 완료'; color:#8888FF; border:1px solid #8888FF;}
+.content_area .content {display:none; width:96%; padding:20px; margin:0 auto; margin-top:20px; border-top:1px solid #AAA; text-align:left;}
+.content_area .content.reply {border-color:#e2e2e2;}
+.content_area .content.reply:before {content:'↳'; margin-right:10px;}
+
+
+.btn_area {width:100%; text-align:center; margin-top:40px;}
+.btn_area button {width:100%; background-color:#000; color:#FFF; padding:12px; display:block; margin:0 auto; margin-top:5px; font-size:10pt;}
+.title {text-align:center; font-size:25pt; color:#000; font-weight:bold; margin-bottom:20px;}
+.semi_title {font-size:12pt; margin-bottom:20px;}
+
+
+a {cursor:pointer;}
+
+.center {text-align:center;}
+.left {text-align:left;}
+.right {text-align:right;}
+.bar {margin:0 5px;}
+.no-margin-top {margin-top:0;}
+

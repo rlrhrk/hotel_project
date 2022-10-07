@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.mapper.RoomMapper">
+	
+	<select id="selectAllRoom" resultType="room">
+		select r.*, (select roomimage from roomimage ri where r.roomno = ri.roomno ) as roomImage from room r
+	</select>
+	
+	<select id="selectRoomOption" parameterType="String" resultType="room">
+		select r.*, (select optionpath from roomoptionimage ri where ri.optionname = r.optionname) as optionPath 
+		from roomoption r where roomno = #{roomNo}
+	</select>
+	
+	<select id="selectHotelName" parameterType="String" resultType="String">
+		select hotelname from hotel where hotelno = #{hotelno}
+	</select>
+	
+	<select id="selectOneRoom" parameterType="String" resultType="room">
+		select r.*, (select roomimage from roomimage ri where r.roomno = ri.roomno ) as roomimage from room r where r.roomno = #{roomNo}
+	</select>
+	
+	<select id="selectHotelList" resultType="room">
+		select hotelno, hotelname from hotel
+	</select>
+	
+	<update id="updateRoom" parameterType="room">
+		update room set roomno = #{roomNo}, hotelno = #{hotelNo}, roomtype = #{roomType}, roomsimplemanual = #{roomSimpleManual},
+		roomdetailmanual = #{roomDetailManual}, price = #{price} where roomno = #{roomNo} 
+	</update>
+	
+	<update id="updateRoomImage" parameterType="room">
+		update roomimage set roomimage = #{roomImage} where roomno = #{roomNo}
+	</update>
+	
+	<select id="selectInsertRoomOption" parameterType="String" resultType="room">
+		select * from roomoptionimage ro where ro.optionname not in
+		(select ri.optionname from roomoption ri where ri.roomno = #{roomNo})
+	</select>
+	
+	<delete id="resetRoomOption" parameterType="String">
+		delete from roomoption where roomno = #{roomNo}
+	</delete>
+	
+	<insert id="insertRoomOption" parameterType="map">
+		insert into roomoption values(#{roomNo}, #{optionName})
+	</insert>
+	
+	<select id="allOptionList" resultType="room">
+		select * from roomoptionimage
+	</select>
+	
+	<insert id="insertRoom" parameterType="room">
+		insert into room values(#{roomNo}, #{hotelNo}, #{roomType}, #{roomSimpleManual}, #{price}, #{roomDetailManual})	
+	</insert>
+	
+	<insert id="insertRoomImage" parameterType="room">
+		insert into roomimage values(#{roomNo}, #{roomImage})
+	</insert>
+	
+	<delete id="deleteOption" parameterType="String">
+		delete from roomoptionimage where optionname = #{optionName}
+	</delete>
+	
+	<insert id="setOption" parameterType="map" >
+		insert into roomoptionimage (optionname, optionpath) values(#{optionName}, #{optionPath})
+	</insert>
+	
+	<delete id="deleteRoom" parameterType="String">
+		delete from room where roomno = #{roomNo}
+	</delete>
+</mapper>
+
+
+
+
+
+
+

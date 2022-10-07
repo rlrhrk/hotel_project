@@ -1,0 +1,15 @@
+.booking-restaurant{
+  background-color: #000000;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 5px 5px;
+  border-radius: 10px;
+	
+}
+.booking-restaurant input,select{
+  border-radius: 10px;
+	
+}
+/** ADD YOUR AWESOME CODES HERE **/

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.mapper.RestaurantMapper">
+
+	<select id="selectAllRestaurant" resultType="restaurant">
+		select r.*,
+		(select restauranttype from restauranttype rt where r.restauranttypeno = rt.restauranttypeno)as restauranttype
+		from restaurant r
+	</select>
+	
+	<delete id="deleteRestaurant" parameterType="String">
+		delete from restaurant where restaurantno = #{restaurantNo}
+	</delete>
+	
+	<select id="selectOneRestaurant" parameterType="String" resultType="restaurant">
+		select r.*,
+		(select restauranttype from restauranttype rt where r.restauranttypeno = rt.restauranttypeno)as restauranttype
+		from restaurant r where r.restaurantno = #{RestaurantNo}
+	</select>
+	
+	<select id="selectTypeList" resultType="restaurant">
+	 	select * from restauranttype
+	</select>
+	
+	<update id="updateRestaurant" parameterType="restaurant">
+		update restaurant set RESTAURANTIMAGEPATH = #{restaurantImagepath},
+		RESTAURANTTYPENO = #{restaurantTypeNo}, RESTAURANTMANUAL = #{restaurantManual},
+		HOTELNO = #{hotelNo}, HOTELNAME = #{hotelName},
+		RESTAURANTPRICE = #{restaurantPrice} where RESTAURANTNO = #{restaurantNo}
+	</update>
+	
+	<insert id="insertRestaurant" parameterType="restaurant">
+	 	insert into restaurant values(#{restaurantNo}, #{restaurantImagepath}, #{restaurantTypeNo}, #{restaurantManual},
+	 	#{hotelNo}, #{hotelName}, #{restaurantPrice})
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+

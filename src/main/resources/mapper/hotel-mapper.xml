@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.mapper.HotelMapper">
+
+	<select id="selectAllHotel" resultType="hotel">
+		select * from hotel
+	</select>
+	
+	<insert id="insertHotel" parameterType="hotel">
+		insert into hotel values(#{hotelNo}, #{hotelName}, #{hotelTel}, #{hotelAddress},
+		 #{hotelImage}, #{hotelSimpleManual}, #{hotelDetailManual})
+	</insert>
+	
+	<select id="selectOneHotel" parameterType="String" resultType="hotel">
+		select * from hotel where hotelno = #{hotleNo}
+	</select>
+	
+	<update id="updateHotel" parameterType="hotel">
+		update hotel set hotelname = #{hotelName}, hoteltel = #{hotelTel},
+		hoteladdress = #{hotelAddress}, hotelimage = #{hotelImage},
+		hotelsimplemanual = #{hotelSimpleManual}, hoteldetailmanual = #{hotelDetailManual}
+		where hotelno = #{hotelNo}
+	</update>
+	
+	<delete id="deleteHotel" parameterType="String">
+		delete from hotel where hotelno = #{hotleNo}
+	</delete>
+	
+	<select id="selectAllEa" parameterType="String" resultType="int">
+		select count(*) from room where hotelno = #{hotleNo}
+	</select>
+	
+	
+</mapper>
+
+
+
+
+
+
+
